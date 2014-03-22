@@ -1,0 +1,17 @@
+module muxtwo(i1,i2,s,y)
+input i1,i2,s;
+output y;
+assign y=(s?i1:i2);
+endmodule
+
+module testbench();
+reg i1,i2,s;
+wire y;
+mux m1(i1,i0,s,y)
+initial
+    begin
+         s=0; i1=1; i2=1;
+    #5 s=1; i1=0; i2=1;
+    #5 $finish
+end 
+endmodue

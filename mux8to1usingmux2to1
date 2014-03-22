@@ -1,0 +1,40 @@
+module mux2(s, d0, d1, y);
+input s;
+input d0;
+input d1;
+output y;
+assign y=(~s&d0)|(s&d1);
+endmodule
+
+module mux82(s, d, y);
+input [2:0] s;
+input [7:0] d;
+output y;
+wire y1,y2,y3,y4,y5,y6;
+mux2 m1(s[0],d[0],d[1],y1);
+mux2 m2(s[0],d[2],d[3],y2);
+mux2 m3(s[0],d[4],d[5],y3);
+mux2 m4(s[0],d[6],d[7],y4);
+mux2 m5(s[1],y1,y2,y5);
+mux2 m6(s[1],y3,y4,y6);
+mux2 m7(s[2],y5,y6,y);
+endmodule
+
+module testbench();
+reg [2:0]s;
+reg [7:0]d;
+wire y;
+mux82 cc(d,s,y);
+initial 
+begin
+d=8'b00000001; s=3'b000;
+#5 d=8'b00000010; s=3'b001;
+#5 d=8'b00000100; s=3'b010;
+#5 d=8'b00001000; s=3'b011;
+#5 d=8'b00010000; s=3'b100;
+#5 d=8'b00100000; s=3'b101;
+#5 d=8'b01000000; s=3'b110;
+#5 d=8'b10000000; s=3'b111;
+#50 $finish;
+end 
+endmodule

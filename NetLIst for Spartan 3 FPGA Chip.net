@@ -1,0 +1,23 @@
+NETLIST:
+UCF for half add:
+NET "a"  LOC = "F12"  ;
+NET "b"  LOC = "E12"  ;
+NET "s"  LOC = "L13"  ;
+NET "c"  LOC = "L14"  ;
+UCF for half sub:
+NET "a"  LOC = "F12"  ;
+NET "b"  LOC = "E12"  ;
+NET "di"  LOC = "L13"  ;
+NET "bo"  LOC = "L14"  
+UCF for full add:
+NET "a"  LOC = "F12"  ;
+NET "b"  LOC = "E12"  ;
+NET "cin"  LOC = "F11"  ;
+NET "s"  LOC = "L13"  ;
+NET "cout"  LOC = "L14"  
+UCF for full sub:
+NET "a"  LOC = "F12"  ;
+NET "b"  LOC = "E12"  ;
+NET "c"  LOC = "F11"  ;
+NET "di"  LOC = "L13"  ;
+NET "bo"  LOC = "L14"  
